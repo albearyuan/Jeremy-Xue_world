@@ -1,9 +1,9 @@
 class Article < ApplicationRecord
-  belongs_to :category
+  has_one :category
   
   validates_presence_of :title, :content
   
   scope :active, 			 -> { where('active = ?', true) }
-  scope :alphabetical, -> { order('name') }
+  scope :alphabetical, -> { order('title') }
   
 end
